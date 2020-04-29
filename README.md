@@ -25,7 +25,7 @@ Use the package manager [pip3]
 
 
 
-### using CLI:
+### Using CLI:
 
 ```bash
 usage: jobs [spaces must be replaced by '-'] [-h] [-p position] [-l location]
