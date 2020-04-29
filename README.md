@@ -17,10 +17,11 @@ Python web scrapper with CLI that searches in LinkedIn for jobs under specified 
 ## Installation
 
 Use the package manager [pip3]
-
-``pip3 install beautifulsoup4 <br />
+```bash
+pip3 install beautifulsoup4 <br />
 pip3 install requests <br />
-pip3 install argparse-utils``
+pip3 install argparse-utils
+```
 
 
 
