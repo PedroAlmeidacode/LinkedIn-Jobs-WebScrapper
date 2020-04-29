@@ -3,7 +3,7 @@
 Python web scrapper with CLI that searches in LinkedIn for jobs under specified parameters 
 
 
-##How it works
+## How it works ?
 
 - Select parameters of jobs search
 - Can search for job and location
