@@ -2,6 +2,7 @@
 
 Python web scrapper with CLI that searches in LinkedIn for jobs under specified parameters 
 
+<br>
 
 ## How it works ?
 
@@ -10,9 +11,11 @@ Python web scrapper with CLI that searches in LinkedIn for jobs under specified 
 . You can add a filter
 - Output list of jobs, their short information and link
 
+<br>
 
 ## Pre-requirements
 ``python3``
+<br>
 
 ## Installation
 
@@ -23,7 +26,7 @@ Use the package manager [pip3]
 ** pip3 install argparse-utils
 ```
 
-
+<br>
 
 ### Using CLI:
 
@@ -39,3 +42,9 @@ optional arguments:
   -l location  The location of the job
   -f filter    What keyword to filter by
 ```
+
+
+<br><br><br><b>
+### MADE BY 
+Pedro Almeida
+in #OneScriptPerDay personal challenge 
