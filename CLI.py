@@ -2,8 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 import argparse
 
+
 # returns clean search with the parameters passed
-def scrape_jobs(position,location=None):
+def scrape_jobs(position, location=None):
     if location:
         URL = f"https://www.linkedin.com/jobs/search/?keywords={position}&location={location}"
     else:
@@ -40,10 +41,12 @@ def print_all_jobs(results):
         link_elem = company_elem.find("a")
         decripton_elem = location_elem.find("p", class_="job-result-card__snippet")
         datetime_elem = location_elem.find("time", class_="job-result-card__listdate--new")
-        link = link_elem["href"]
-        if link is not None:
+        try:
+            link = link_elem["href"]
             print("Link: ", link)
-        print("Company: ", company_elem.text.strip())
+            print("Company: ", company_elem.text.strip())
+        except:
+            print("Does not have a link ! ")
 
         if decripton_elem is not None:
             decripton_elem = decripton_elem.text.strip()
@@ -72,7 +75,8 @@ def print_all_jobs(results):
 # -----------------------------
 
 
-my_parser = argparse.ArgumentParser(prog="jobs [spaces must be replaced by '-']", description="Find a job in any/certain location in LinkedIn")
+my_parser = argparse.ArgumentParser(prog="jobs [spaces must be replaced by '-']",
+                                    description="Find a job in any/certain location in LinkedIn")
 my_parser.add_argument("-p", metavar="position", type=str, help="The position/job you are looking for")
 my_parser.add_argument("-l", metavar="location", type=str, help="The location of the job")
 my_parser.add_argument("-f", metavar="filter", type=str, help="What keyword to filter by")
@@ -80,12 +84,10 @@ my_parser.add_argument("-f", metavar="filter", type=str, help="What keyword to f
 args = my_parser.parse_args()
 position, location, keyword = args.p, args.l, args.f
 
-
-
 print("Scrapping the pretended information from LinkedIn...\n\n")
 results = scrape_jobs(position, location)
 print("LinkedIn results:\n\n")
-if keyword: # se escrever filtro de keyword
+if keyword:  # se escrever filtro de keyword
     filter_jobs_by_keyword(results, keyword.lower())
-else: # senao imrpime todos os jobs
+else:  # senao imrpime todos os jobs
     print_all_jobs(results)
